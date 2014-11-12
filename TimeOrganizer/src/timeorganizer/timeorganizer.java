@@ -25,7 +25,12 @@ public class timeorganizer {
       System.out.print("Time difference from now to " + testHour + ":" + testMinute + " : ");
       if (testMinute<currentMin)
       {
-          System.out.print((testHour - currentHour)-1 + ":");
+          int hourResult = (testHour - currentHour)-1;
+          if (hourResult<0)
+              System.out.print(hourResult*-1 + ":");
+          else
+              System.out.print(hourResult + ":");
+          
           int minResult = testMinute +(60-currentMin);
           if (minResult<10)
           System.out.println("0" + minResult);
@@ -34,7 +39,12 @@ public class timeorganizer {
       }
       else
       {
-          System.out.print(testHour-currentHour + ":");
+          int hourResult = testHour-currentHour;
+          if (hourResult<0)
+              System.out.print(hourResult*-1 + ":");
+          else
+              System.out.print(hourResult + ":");
+          
           int minResult = testMinute-currentMin;
           if (minResult<10)
           System.out.println("0" + minResult);
