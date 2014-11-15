@@ -9,17 +9,23 @@ public class timeorganizer {
 //Hardcoded hour and minutes to test time differences
         int testHour = 5;
         int testMinute = 45;
+        int testPeriod = 1;    //Period of day; 0 = AM, 1 = PM
         
         int currentHour = gcalendar.get(Calendar.HOUR);
         int currentMin = gcalendar.get(Calendar.MINUTE);
+        int PeriodOfDay = gcalendar.get(Calendar.AM_PM);
       
 //Prints current time   LINK http://www.tutorialspoint.com/java/java_date_time.htm
       System.out.print("Time: ");
       System.out.print(currentHour + ":");
       if (currentMin<10)
-      System.out.println("0"+currentMin);
+        System.out.print("0"+currentMin);
       else
-      System.out.println(currentMin);
+        System.out.print(currentMin);
+      if (PeriodOfDay == 0)
+        System.out.println(" AM");
+      else if (PeriodOfDay == 1)
+         System.out.println(" PM");
       
 //Printint difference of current time and hardcoded time
       System.out.print("Time difference from now to " + testHour + ":" + testMinute + " : ");
