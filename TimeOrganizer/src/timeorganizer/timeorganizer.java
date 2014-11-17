@@ -3,29 +3,22 @@ import java.util.*;
 
 public class timeorganizer {
 
+    static GregorianCalendar gcalendar = new GregorianCalendar();
+    static int currentHour;
+    static int currentMin;
+    static int PeriodOfDay;
+    
     public static void main(String[] args) {
-        GregorianCalendar gcalendar = new GregorianCalendar();
-        
-//Hardcoded hour and minutes to test time differences
+
         int testHour = 5;
         int testMinute = 45;
         int testPeriod = 1;    //Period of day; 0 = AM, 1 = PM
         
-        int currentHour = gcalendar.get(Calendar.HOUR);
-        int currentMin = gcalendar.get(Calendar.MINUTE);
-        int PeriodOfDay = gcalendar.get(Calendar.AM_PM);
+        currentHour = getCurrentHour();
+        currentMin = getCurrentMinute();
+        PeriodOfDay = getPeriodOfDay();
       
-//Prints current time   LINK http://www.tutorialspoint.com/java/java_date_time.htm
-      System.out.print("Time: ");
-      System.out.print(currentHour + ":");
-      if (currentMin<10)
-        System.out.print("0"+currentMin);
-      else
-        System.out.print(currentMin);
-      if (PeriodOfDay == 0)
-        System.out.println(" AM");
-      else if (PeriodOfDay == 1)
-         System.out.println(" PM");
+        printCurrentTime();
       
 //Printint difference of current time and hardcoded time
       System.out.print("Time difference from now to " + testHour + ":" + testMinute + " : ");
@@ -59,4 +52,36 @@ public class timeorganizer {
       }
 
     }
+    
+    static public void printCurrentTime()
+    {
+        //Prints current time
+      System.out.print("Time: ");
+      System.out.print(currentHour + ":");
+      if (currentMin<10)
+        System.out.print("0"+currentMin);
+      else
+        System.out.print(currentMin);
+      if (PeriodOfDay == 0)
+        System.out.println(" AM");
+      else if (PeriodOfDay == 1)
+         System.out.println(" PM");
+    }
+    
+    static public int getCurrentHour()
+    {
+        int CurrHr = gcalendar.get(Calendar.HOUR);
+        return (CurrHr);
+    }
+    static public int getCurrentMinute()
+    {
+        int CurrMin = gcalendar.get(Calendar.MINUTE);
+        return (CurrMin);
+    }
+    static public int getPeriodOfDay()
+    {
+        int POD = gcalendar.get(Calendar.AM_PM);
+        return(POD);
+    }
 }
+//Link to Calendar http://www.tutorialspoint.com/java/java_date_time.htm
